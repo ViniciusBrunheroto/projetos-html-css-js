@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+
+  </body>
+
+    <script>
+      // criação de um objeto
+     var pessoa = {
+        //1. Dados
+        //nome: ['Bob', 'Smith'],
+        //transformar o valor de um membro de um objeto ser outro objeto: SUB-NAMESPACE
+        nome : {
+          primeiro: 'Bob',
+          ultimo: 'Smith'
+        },
+        idade: 32,
+        sexo: 'masculino',
+        interesses: ['música','esquiar'],
+        //2. Funcionalidades
+        bio: function () {
+           alert(this.nome.primeiro + ' '+ this.nome.ultimo + ' tem ' + this.idade + ' anos de idade. Ele gosta de '+ this.interesses[0] +
+            ' e ' + this.interesses[1] + '.');
+         },
+        saudacao: function () {
+          alert('Oi! Eu sou ' + this.nome.primeiro + '.');
+
+          }
+        };
+
+
+  var myDataName = 'altura';
+  var myDataValue = '1.75m';
+  pessoa[myDataName] = myDataValue;
+    </script>
+</html>

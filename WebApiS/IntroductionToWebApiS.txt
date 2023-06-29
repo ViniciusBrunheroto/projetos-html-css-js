@@ -1,0 +1,32 @@
+JavaScript libraries x JavaScript frameworks
+
+
+APIs in client-side JS:
+provide extra superpowers to use in your JS code
+
+
+Browsers APIs:
+-> APIs for manipulating documents loaded into the browser : DOM API
+-> APIs that fetch data from server to update small sections of a webpage
+on their own : Fetch API
+-> APIs for drawing and manipulating graphics: Canvas API, WebGL
+-> Audio and Videos APIs : Web Audio API e WebRTC
+-> Device APIs: Geolocation API
+-> Client-side storage APIs: Web Storage API, IndexedDB API
+
+Third-party APIs:
+-> Twitter API
+-> Map APIs : Mapquest, Google Maps API
+-> Facebook suite of APIs
+-> Telegram APIs
+-> Youtube API
+-> Pinterest API
+-> Twilio API
+-> Mastodon API
+
+
+How do APIs work?
+-Based on objects (containers with DATA and FUNCTIONALITY)
+-They have recognizable entry points
+-Use events to handle changes in state
+-Additional security mechanisms 

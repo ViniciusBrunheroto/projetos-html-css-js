@@ -1,0 +1,68 @@
+
+===Aplicar CSS no HTML===
+1) Folha de Estilos Externa (arquivo .css externo , <link>)
+2) Folha de Estilos Interna (CSS dentro do <style> no <head> do HTML)
+3) Estilos inline (declarações CSS que afetam apenas um elemento, 
+no atributo style) => não use isso a menos que seja estritamente necessário!
+
+
+
+===Propriedades e valores===
+-2 building blocks:
+-> PROPRIEDADES
+-> VALORES
+-> Propriedade + valor = declaração CSS
+
+As declarações CSS são colocadas dentro 
+dos Blocos de Declaração CSS.
+
+Blocos de declaração CSS são emparelhados 
+com seletores para produzir conjuntos de regras CSS
+
+Tanto propriedades como valores são case-sensitive
+
+
+===Especificidade===
+Nas situações de CONFLITO => resolução por CASCATA e ESPECIFICIDADE 
+
+1) As definições de estilos posteriores substituem 
+os anteriores. Esta é a cascata em ação.
+
+2) Uma classe é descrita como sendo mais específica, 
+ou tendo mais especificidade do que o 
+seletor de elemento, então ela vence.
+
+===Shorthands===
+font, background, padding, border e margin
+
+In 4-value shorthands like padding and margin, the values are applied
+in the order top, right, bottom, left (clockwise from the top). 
+There are also other shorthand types, for example 2-value shorthands, which set padding/margin
+for top/bottom, then left/right 
+
+
+padding: 10px 15px 15px 5px  
+É IGUAL A:
+padding-top: 10px;
+padding-right: 15px;
+padding-bottom: 15px;
+padding-left: 5px;
+--------------------------------
+background: red url(bg-graphic.png) 10px 10px repeat-x fixed
+É IGUAL A:
+background-color: red;
+background-image: url(bg-graphic.png);
+background-position: 10px 10px;
+background-repeat: repeat-x;
+background-scroll: fixed;
+
+
+===Comentários===
+Comentários em CSS começam com /* e terminam com */.
+
+===Espaços em branco===
+Muitos espaços em branco estão lá apenas para ajudar na legibilidade
+O espaço em branco que você precisa ter cuidado no CSS é o espaço em branco entre as propriedades e seus valores. 
+
+Certifique-se de separar valores distintos uns dos outros por pelo menos um espaço, 
+mas mantenha os nomes das propriedades e os valores das propriedades juntos como strings únicas e ininterruptas.

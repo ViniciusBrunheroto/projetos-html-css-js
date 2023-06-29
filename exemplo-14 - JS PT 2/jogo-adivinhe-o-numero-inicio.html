@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Number guessing game</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+      
+      .form input[type="number"] {
+        width: 200px;
+      }
+
+      .lastResult {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Number guessing game</h1>
+
+    <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+
+
+    <div class="form">
+      <label for="guessField">Enter a guess: </label>
+      <input type="number" min="1" max="100" required id="guessField" class="guessField">
+      <input type="submit" value="Submit guess" class="guessSubmit">
+    </div>
+
+
+    <div class="resultParas">
+      <p class="guesses"></p>
+      <p class="lastResult"></p>
+      <p class="lowOrHi"></p>
+    </div>
+
+    <script>
+
+
+    //é atribuído um número aleatório entre 1 e 100, calculado usando um algoritmo matemático.
+    var numeroAleatorio= Math.floor(Math.random() * 100) + 1;
+
+    /* são criadas para GUARDAR uma referência para os parágrafos resultantes em nosso HTML, e são usadas para inserir valores nos parágrafos no código: */
+    var palpites = document.querySelector('.guesses');
+    var ultimoResultado = document.querySelector('.lastResult');
+    var baixoOuAlto = document.querySelector('.lowOrHi');
+
+
+    /* ARMAZENAM referências para o CAMPO DE TEXTO e o BOTÃO DE ENVIO e são usados para controlar o envio do palpite. */
+    var envioPalpite = document.querySelector('.guessSubmit');
+
+    //armazena uma referência ao campo de inserção de texto do formulário em nosso HTML 
+    var campoPalpite = document.querySelector('.guessField');
+
+
+    /* são usadas para armazenar a contagem dos palpites do usuário, e o outro é uma referência para o botão de reset, que não existe ainda (mas irá existir). */
+    var contagemPalpites = 1;
+    var botaoReinicio;
+    campoPalpite.focus();
+
+
+    function conferirPalpite() {
+
+    var palpiteUsuario = Number(campoPalpite.value);
+    
+
+    if (contagemPalpites === 1) {
+      palpites.textContent = 'Palpites anteriores: ';
+    }
+
+     palpites.textContent += palpiteUsuario + ' ';
+
+
+    if (palpiteUsuario === numeroAleatorio) {
+    ultimoResultado.textContent = 'Parabéns! Você acertou!';
+    ultimoResultado.style.backgroundColor = 'green';
+    baixoOuAlto.textContent = '';
+    configFimDeJogo();
+    } else if (contagemPalpites === 10) 
+    {
+        ultimoResultado.textContent = '!!!FIM DE JOGO!!!';
+        baixoOuAlto.textContent = '';
+        configFimDeJogo();
+     }else
+     {
+        ultimoResultado.textContent = 'Errado!';
+        ultimoResultado.style.backgroundColor = 'red';
+        if(palpiteUsuario < numeroAleatorio) {
+            baixoOuAlto.textContent = 'Seu palpite está muito baixo!';
+        }
+        else if(palpiteUsuario > numeroAleatorio) {
+        baixoOuAlto.textContent = 'Seu palpite está muito alto!';
+        }
+      }
+
+      contagemPalpites++;
+      campoPalpite.value = '';
+      campoPalpite.focus();
+}
+  envioPalpite.addEventListener('click',conferirPalpite);
+
+
+  function configFimDeJogo()
+  {
+    /*desabilitar entrada de texto e o clique do botao */
+    campoPalpite.disabled = true;
+    envioPalpite.disabled = true;
+
+    /* gerar elemento <button> */
+    botaoReinicio = document.createElement('button');
+    botaoReinicio.textContent= 'Iniciar novo jogo';
+    document.body.appendChild(botaoReinicio);
+
+    botaoReinicio.addEventListener('click',reiniciarJogo);
+  }
+
+  function reiniciarJogo(){
+    //variável ContagemPalpites volta a valer 1
+    contagemPalpites = 1;
+
+    //Limpa parágrafos de informativos
+    var reiniciarParas = document.querySelectorAll('.resultParas p');
+    for (var i = 0; i < reiniciarParas.length; i++){
+      reiniciarParas[i].textContent = '';
+    }
+    
+
+    //Remove o botão resete do código
+    botaoReinicio.parentNode.removeChild(botaoReinicio);
+
+    // desabilita elementos dos formulárops
+    campoPalpite.disabled = false;
+    envioPalpite.disabled = false;
+    campoPalpite.value = '';
+    campoPalpite.focus();
+
+    //Remove a cor de fundo
+    ultimoResultado.style.backgroundColor = 'white';
+
+    //Gera um novo número aleatório 
+    numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+}
+    </script>
+  </body>
+</html>

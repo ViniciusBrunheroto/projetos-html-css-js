@@ -1,0 +1,17 @@
+Web browser:
+
+Navigator : state and identity of the browser
+    Window : browser tab
+        Document : actual page loaded into the window
+
+
+
+DOM(Document Object Model): tree structure que representa um documento carregado
+no browser tab
+-root node : HTML 
+-child node
+-descendant node
+-parent node
+-sibling nodes
+
+

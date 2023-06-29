@@ -1,0 +1,72 @@
+/*
+
+
+h1 {
+  color: red;
+}
+
+
+vários seletores ao mesmo tempo
+p, li {
+    color: green;
+}
+
+
+mudando estilo da lista
+li {
+  list-style-type: square;
+}
+
+
+ponto final + nome da classe => ESPECIFICAR o elemento ao qual se quer estilizar
+.special
+ {
+  color: orange;
+  font-weight: bold;
+}
+
+
+*/
+
+
+/* Combinador descendente  - "em" que está dentro de "li"*/ 
+li em {
+  color: rebeccapurple;
+}
+
+/* Combinador irmão adjacente - "p" que vem diretamente depois de "h1" */ 
+h1 + p {
+  font-size: 200%;
+}
+
+/* Combinador descendente - "span" que está dentro de "p" */ 
+p span {
+    color:  red;
+}
+
+
+/* estilizando links */
+
+/* 1- link não visitado */
+a:link {
+  color: red;
+  font-weight: bold;
+}
+
+/* 2- link visitado */
+a:visited {
+  color: green;
+}
+
+/* 3- link ao passar o mouse (remove sublinhado) */
+a:hover {
+  text-decoration: none;
+}
+
+
+/* elementos da classe .special dentro de p que vem após h1 que está dentro de body*/
+body h1 + p .special {
+  color: yellow;
+  background-color: black;
+  padding: 5px;
+}

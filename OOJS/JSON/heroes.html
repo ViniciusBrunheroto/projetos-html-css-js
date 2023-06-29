@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Our superheroes</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+      <header>
+
+      </header>
+
+      <section>
+
+      </section>
+
+      <script>
+        //CONVERTION OF NETWORK RESPONSE DIRECTLY INTO A JAVASCRIPT OBJECT
+    async function populate() {
+    const requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+    const request = new Request(requestURL);
+
+    //network request: fetch(), returns a response object
+    const response = await fetch(request);
+
+    //network response: retrieve the response as JSON
+    const superHeroes = await response.json();
+
+    //superHeroes variable contain the JavaScript object based on the JSON
+    populateHeader(superHeroes); //fills the header with correct data
+    populateHeroes(superHeroes); //creates an information card for each hero on the team, and inserts it into the <section>
+
+    }
+
+  function populateHeader(obj) {
+    const header = document.querySelector('header');
+    const myH1 = document.createElement('h1');
+    myH1.textContent = obj.squadName;
+    header.appendChild(myH1);
+
+    const myPara = document.createElement('p');
+    myPara.textContent = `Hometown: ${obj.homeTown} // Formed: ${obj.formed}`;
+    header.appendChild(myPara);
+}
+
+function populateHeroes(obj) {
+  const section = document.querySelector('section');
+  const heroes = obj.members; //This array contains multiple objects that contain the information for each hero.
+
+  for (const hero of heroes) {
+    //loop through each object in the array
+    const myArticle = document.createElement('article');
+    const myH2 = document.createElement('h2');
+    const myPara1 = document.createElement('p');
+    const myPara2 = document.createElement('p');
+    const myPara3 = document.createElement('p');
+    const myList = document.createElement('ul');
+
+    myH2.textContent = hero.name;
+    myPara1.textContent = `Secret identity: ${hero.secretIdentity}`;
+    myPara2.textContent = `Age: ${hero.age}`;
+    myPara3.textContent = 'Superpowers:';
+
+    const superPowers = hero.powers;
+    //contains an array that lists the current hero's superpowers.
+    for (const power of superPowers) {
+      //loop through the current hero's superpowers
+      const listItem = document.createElement('li'); // <li>: serve para representar um item que faz parte de uma lista
+      listItem.textContent = power;
+      myList.appendChild(listItem); //<ul>: lista desordenada
+    }
+
+    myArticle.appendChild(myH2);
+    myArticle.appendChild(myPara1);
+    myArticle.appendChild(myPara2);
+    myArticle.appendChild(myPara3);
+    myArticle.appendChild(myList);
+
+    section.appendChild(myArticle);
+  }
+}
+
+  populate();
+
+      </script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+Request data from the server and update the page content without a page load
+
+Fetch API: http request to a server to retrieve SPECIFIC resources
+When the server provides them, the JS can use the data to UPDATE
+the page
+
+
+XMLHttpRequest API: first API used to implement AJAX

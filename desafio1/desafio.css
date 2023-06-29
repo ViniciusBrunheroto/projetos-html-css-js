@@ -1,0 +1,68 @@
+input{
+        width: 20%;
+}
+
+
+.btn-in
+{
+    font: 15px;
+    font-weight: bold;
+    width: 90px;
+    height:50px;
+    margin-top: 20px;
+    text-transform: capitalize;
+
+}
+
+.btn-info
+{
+    font: 15px;
+    font-weight: bold;
+    width: 90px;
+    height:50px;
+    margin-top: 20px;
+    margin-left: 30px;
+    text-transform: capitalize;
+}
+
+
+
+button
+{
+    width: 80px;
+    height:40px;
+}
+
+
+
+h1{
+    font-family:Verdana;
+    font-weight: bold;
+    font-size:60px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+p{
+    font-family: arial;
+    font-size:20px;
+    color: white;
+    text-align:left;
+    background: black;
+
+}
+
+
+img {
+    position: absolute;
+    bottom: 0px;
+    right: 50px;
+    height: 20%;
+    border: 8px solid black;
+
+}
+}
+
